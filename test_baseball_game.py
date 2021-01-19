@@ -3,7 +3,7 @@
 import unittest
 import baseball_game as bg
 
-from mock import patch
+from unittest.mock import patch
 from io import StringIO
 
 
@@ -230,4 +230,7 @@ class TestBaseballGame(unittest.TestCase):
                 else:
                     ball += 1
         result = [strikes, ball]
+
         return result
+# if __name__ == "__main__":
+#     unittest.main() 
