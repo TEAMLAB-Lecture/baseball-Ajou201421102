@@ -279,64 +279,35 @@ def is_no(one_more_input):
 
 def main():
     print("Play Baseball")
-    
-    check = True
-    while check :
-        random_number = str(get_not_duplicated_three_digit_number())
-        print("Random Number is : ", random_number)
+    random_number = str(get_not_duplicated_three_digit_number())
+    print("Random Number is : ", random_number)
+    again = True
+    while again:
         user_input = input("Input guess number : ")
-        check2 = True
-        while check2:
-            if is_validated_number(user_input):
-                result = get_strikes_or_ball(int(user_input),random_number)
-                print("Strikes :",result[0],", Balls :",result[1])
-                if result[0]==3:
-                    con = True
-                    replay = input("You win, one more(Y/N)?")
-                    while con:
-                        if is_yes(replay):
-                            con = False
-                            check2 = False
-                        elif is_no(replay):
-                            check = False
-                            check2 = False
-                            con = False
-                            print("Thank you for using this program")
-                            print("End of the Game")
-                        else:
-                            replay = input("Wrong Input, Input again : ")    
-                else:
-                    user_input = input("Input guess number : ")
+        if user_input == "0":
+            break
+        if is_validated_number(user_input):
+            result = get_strikes_or_ball(user_input, random_number)
+            print("Strikes : ",result[0],", Balls : ",result[1])
+            if result[0] == 3:
+                check = True
+                while check:
+                    con = input("You win, one more(Y/N)?")
+                    if is_yes(con):
+                        random_number = str(get_not_duplicated_three_digit_number())
+                        print("Random Number is : ", random_number)
+                        break
+                    elif is_no(con):
+                        print("Thank you for using this program")
+                        print("End of the Game")
+                        again = False
+                        break
+                    else:
+                        print("Wrong Input, Input again")
+        else:
+            print("Wrong Input, Input again")
+            
 
-            else:
-                user_input = input("Wrong Input, Input agin : ")
-        
-        
-        # ===Modify codes below=============
-        # 위의 코드를 포함하여 자유로운 수정이 가능함
-        # if is_validated_number(user_input):
-        #     result = get_strikes_or_ball(int(user_input),random_number)
-        #     print("Strikes :",result[0],", Balls :",result[1])
-        #     check = "" 
-        #     if result[0]==3:
-        #         check = input("You win, one more(Y/N)?")
-        #         while True:
-        #             if(is_yes(check)):
-        #                 break
-        #             elif(is_no(check)):
-        #                 print("Thank you for using this program")
-        #                 print("End of the Game")
-        #                 break
-        #             else:
-        #                 check = input("Wrong Input, Input agin : ")
-        #         if is_no(check):
-        #             break
-                
-        #     else:
-        #         user_input = input("Input guess number : ")
-        # else:
-        #     user_input = input("Wrong Input, Input agin : ")
-        
 
 
     # ==================================

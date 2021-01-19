@@ -1,5 +1,3 @@
-# -*- coding: utf8 -*-
-
 import unittest
 import baseball_game as bg
 
@@ -230,7 +228,6 @@ class TestBaseballGame(unittest.TestCase):
                 else:
                     ball += 1
         result = [strikes, ball]
-
         return result
-# if __name__ == "__main__":
-#     unittest.main() 
+if __name__ == '__main__':
+    unittest.main()
