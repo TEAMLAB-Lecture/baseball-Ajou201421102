@@ -303,7 +303,7 @@ def main():
                     else:
                         check = input("Wrong Input, Input agin : ")
                 if(is_yes(check) or is_no(check)):
-                    break;
+                    break
             else:
                 user_input = input("Input guess number : ")
 
